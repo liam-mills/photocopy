@@ -2,14 +2,34 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="author" content="Liam Mills">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>&shy;</title>
+	<title>Photocopy</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+	<script>
+		function randomInt(min, max) {
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		let min = 400;
+		let max = 600;
+		let width = randomInt(min, max);
+		let height = randomInt(min, max);
+		let number = randomInt(1, 9);
+
+		let src = `https://source.unsplash.com/${width}x${height}`;
+
+		let img = `<img src="${src}" width="${width}" height="${height}" loading="lazy" alt="Figure ${number}">`;
+		let caption = `<figcaption>fig. ${number}</figcaption>`;
+		let figure = `<figure>${img}${caption}</figure>`;
+
+		document.body.innerHTML += figure;
+		
+	</script>
 
 	<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
 		<filter id="svgSharpen">
@@ -27,38 +47,6 @@
 			</feComponentTransfer>
 		</filter>
 	</svg>
-
-	<script>
-		function randomInt(min, max) {
-			min = Math.ceil(min);
-			max = Math.floor(max);
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-		}
-
-		let min = 200;
-		let max = 600;
-		let width = randomInt(min, max);
-		let height = randomInt(min, max);
-		let number = randomInt(1, 9);
-
-		let src = `https://source.unsplash.com/${width}x${height}`;
-
-		let poets = [
-			'Robert Frost',
-			'T. S. Eliot',
-			'Sylvia Plath',
-			'Emily Dickinson',
-			'Pablo Neruda'
-		];
-		let poet = poets[randomInt(0, poets.length - 1)];
-
-		let img = `<img src="${src}" width="${width}" height="${height}" loading="eager" alt="Figure ${number}">`;
-		let caption = `<figcaption>fig. ${number}</figcaption>`;
-		let figure = `<figure>${img}${caption}</figure>`;
-
-		document.body.innerHTML += figure;
-		
-	</script>
 
 </body>
 </html>
