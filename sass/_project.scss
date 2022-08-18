@@ -1,0 +1,22 @@
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    filter: brightness(58%) contrast(168%) hue-rotate(162deg) saturate(198%) grayscale(13%) sepia(2%) invert(13%) url(#svgSharpen) url(#svgThreshold)
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 30px;
+    font-style: italic;
+}

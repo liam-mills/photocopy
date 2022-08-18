@@ -1,0 +1,15 @@
+{
+  "name": "photocopy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "compile": "sass sass/style.scss:style.css",
+    "watch": "sass --watch sass/style.scss:style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.54.4"
+  }
+}
