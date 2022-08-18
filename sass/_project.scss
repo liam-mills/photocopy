@@ -1,22 +1,44 @@
+$black: #000000;
+$white: #FFFFFF;
+
 body {
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: $black;
     height: 100vh;
+    padding: 2rem;
     display: flex;
-    flex-flow: column;
-    gap: 20px;
-    padding: 20px;
     justify-content: center;
     align-items: center;
-    filter: brightness(58%) contrast(168%) hue-rotate(162deg) saturate(198%) grayscale(13%) sepia(2%) invert(13%) url(#svgSharpen) url(#svgThreshold)
+    flex-flow: column nowrap;
+    filter: brightness(58%) contrast(168%) hue-rotate(162deg) saturate(198%) grayscale(13%) sepia(2%) invert(13%) url(#svgSharpen) url(#svgThreshold);
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-p {
-    font-size: 30px;
-    font-style: italic;
+figure {
+    text-align: right;
+    margin-bottom: 2rem;
+    font-size: 0;
+    position: relative;
+    &::before {
+        content: 'loading image';
+        font-style: italic;
+        position: absolute;
+        font-size: 32px;
+        inset: 0;
+        height: calc(100% - 37px);
+        padding-top: 37px;
+        width: 100%;
+        display: block;
+        display: grid;
+        place-items: center;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 1;
+    }
+    figcaption {
+        font-size: 32px;
+        font-style: italic;
+    }
 }
