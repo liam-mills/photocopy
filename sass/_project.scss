@@ -22,7 +22,7 @@ figure {
         content: 'loading image';
         font-style: italic;
         position: absolute;
-        font-size: 32px;
+        font-size: clamp(24px, 4vw, 32px);;
         inset: 0;
         height: calc(100% - 37px);
         padding-top: 37px;
@@ -30,6 +30,9 @@ figure {
         display: block;
         display: grid;
         place-items: center;
+        @media (max-width: 200px) {
+            content: none;
+        }
     }
     img {
         max-width: 100%;
