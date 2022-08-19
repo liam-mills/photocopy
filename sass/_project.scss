@@ -42,15 +42,28 @@ figure {
     }
 }
 
-label {
+label, button {
     color: $black;
     position: absolute;
     top: 0;
-    right: 0;
     padding: 0.5rem;
     font-size: 32px;
     z-index: 2;
     text-transform: lowercase;
+    background: none;
+}
+
+label {
+    right: 0;
+}
+
+button {
+    left: 0;
+    @media (max-width: 200px) {
+        left: initial;
+        right: 0;
+        top: 53px;
+    }
 }
 
 input {
@@ -61,7 +74,7 @@ input {
     &:checked ~ #container {
         filter: invert(1);
     }
-    &:checked + label {
+    &:checked ~ label, &:checked ~ button {
         color: $white;
     }
 }

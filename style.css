@@ -52,15 +52,30 @@ figure figcaption {
   font-style: italic;
 }
 
-label {
+label, button {
   color: #000000;
   position: absolute;
   top: 0;
-  right: 0;
   padding: 0.5rem;
   font-size: 32px;
   z-index: 2;
   text-transform: lowercase;
+  background: none;
+}
+
+label {
+  right: 0;
+}
+
+button {
+  left: 0;
+}
+@media (max-width: 200px) {
+  button {
+    left: initial;
+    right: 0;
+    top: 53px;
+  }
 }
 
 input {
@@ -72,7 +87,7 @@ input {
 input:checked ~ #container {
   filter: invert(1);
 }
-input:checked + label {
+input:checked ~ label, input:checked ~ button {
   color: #FFFFFF;
 }
 
