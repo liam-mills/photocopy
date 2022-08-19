@@ -6,17 +6,13 @@
   font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
   background-color: #FFFFFF;
   color: #000000;
   height: 100vh;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column nowrap;
   filter: brightness(58%) contrast(168%) hue-rotate(162deg) saturate(198%) grayscale(13%) sepia(2%) invert(13%) url(#svgSharpen) url(#svgThreshold);
 }
 
@@ -27,7 +23,8 @@ figure {
   position: relative;
 }
 figure::before {
-  content: "loading image";
+  content: "Loading Image";
+  text-transform: lowercase;
   font-style: italic;
   position: absolute;
   font-size: clamp(24px, 4vw, 32px);
@@ -53,6 +50,41 @@ figure img {
 figure figcaption {
   font-size: 32px;
   font-style: italic;
+}
+
+label {
+  color: #000000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  font-size: 32px;
+  z-index: 2;
+  text-transform: lowercase;
+}
+
+input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  position: absolute;
+}
+input:checked ~ #container {
+  filter: invert(1);
+}
+input:checked + label {
+  color: #FFFFFF;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  background-color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

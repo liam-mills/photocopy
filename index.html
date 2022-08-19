@@ -8,7 +8,32 @@
 </head>
 <body>
 
+	<input type="checkbox" id="toggle">
+	<label for="toggle">Invert</label>
+
+	<div id="container">
+	
+		<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+			<filter id="svgSharpen">
+				<feConvolveMatrix order="3 3" preserveAlpha="true" divisor="1" bias="0.15" kernelMatrix="-1,-1,-1 -1,9,-1 -1,-1,-1"/>
+			</filter>
+		</svg>
+		
+		<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+			<filter id="svgThreshold">
+				<feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/>
+				<feComponentTransfer>
+					<feFuncR type="discrete" tableValues=" 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"/>
+					<feFuncG type="discrete" tableValues=" 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"/>
+					<feFuncB type="discrete" tableValues=" 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"/>
+				</feComponentTransfer>
+			</filter>
+		</svg>
+
+	</div>
+
 	<script>
+		// Image generation.
 		function randomInt(min, max) {
 			min = Math.ceil(min);
 			max = Math.floor(max);
@@ -27,26 +52,10 @@
 		let caption = `<figcaption>fig. ${number}</figcaption>`;
 		let figure = `<figure>${img}${caption}</figure>`;
 
-		document.body.innerHTML += figure;
-		
-	</script>
+		let container = document.getElementById('container');
+		container.innerHTML += figure;
 
-	<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
-		<filter id="svgSharpen">
-			<feConvolveMatrix order="3 3" preserveAlpha="true" divisor="1" bias="0.15" kernelMatrix="-1,-1,-1 -1,9,-1 -1,-1,-1"/>
-		</filter>
-	</svg>
-	
-	<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
-		<filter id="svgThreshold">
-			<feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/>
-			<feComponentTransfer>
-				<feFuncR type="discrete" tableValues=" 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"/>
-				<feFuncG type="discrete" tableValues=" 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"/>
-				<feFuncB type="discrete" tableValues=" 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"/>
-			</feComponentTransfer>
-		</filter>
-	</svg>
+	</script>
 
 </body>
 </html>
